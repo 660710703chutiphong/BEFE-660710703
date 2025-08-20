@@ -72,8 +72,8 @@ func getYuri_book(c *gin.Context) {
 }
 func main() {
 	r := gin.Default()
-	r.GET("/Heathly", func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "Healthy"})
+	r.GET("/yuri", func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "yuri book"})
 	})
 
 	api := r.Group("/api/v1")
