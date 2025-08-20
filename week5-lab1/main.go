@@ -12,7 +12,7 @@ type User struct {
 func main() {
 	r := gin.Default()
 	r.GET("/users", func(c *gin.Context) {
-		user := []User{{ID: "1", Name: "Chutiphong"}}
+		user := []User{{ID: "2", Name: "Chutiphong"}}
 		c.JSON(200, user)
 	})
 	r.Run(":8080")
