@@ -1,20 +1,23 @@
 package main
 
 import (
-	"fmt"
-	"os"
 	"database/sql"
-	// "github.com/lib/pq"
+	"fmt"
 	"log"
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
+
+	"github.com/gin-gonic/gin"
+	_ "github.com/lib/pq"
 )
+
 func getEnv(key, defaultValue string) string {
-	if value := os.Getenv(key); value != ""{
+	if value := os.Getenv(key); value != "" {
 		return value
-	} 
+	}
 	return defaultValue
 }
+
 var db *sql.DB
 
 func initDB() {
@@ -26,9 +29,9 @@ func initDB() {
 	password := getEnv("DB_PASSWORD", "")
 	port := getEnv("DB_PORT", "")
 	conSt := fmt.Sprintf(
-    "host=%s dbname=%s user=%s password=%s port=%s sslmode=disable",
-    host, name, user, password, port,
-)
+		"host=%s dbname=%s user=%s password=%s port=%s sslmode=disable",
+		host, name, user, password, port,
+	)
 
 	fmt.Println(conSt)
 	//
@@ -48,13 +51,13 @@ func main() {
 	initDB()
 	r := gin.Default()
 
-	r.GET("/health", func(c *gin.Context){
+	r.GET("/health", func(c *gin.Context) {
 		err := db.Ping()
 		if err != nil {
-			c.JSON(http.StatusServiceUnavailable, gin.H{"message": "unhealthy","error": err.Error()})
+			c.JSON(http.StatusServiceUnavailable, gin.H{"message": "unhealthy", "error": err.Error()})
 			return
 		}
-		c.JSON(200, gin.H{"message" : "healthy"})
+		c.JSON(200, gin.H{"message": "healthy"})
 	})
 
 	// api := r.Group("/api/v1")
