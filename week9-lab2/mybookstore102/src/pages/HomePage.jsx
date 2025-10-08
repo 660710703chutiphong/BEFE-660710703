@@ -1,6 +1,5 @@
-import React from 'react';
+import { ArrowRightIcon, BookOpenIcon, ShieldCheckIcon, TruckIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
-import { ArrowRightIcon, BookOpenIcon, TruckIcon, ShieldCheckIcon } from '@heroicons/react/outline';
 import BookCard from '../components/BookCard';
 
 const HomePage = () => {
@@ -51,7 +50,7 @@ const HomePage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-viridian-600 to-green-700 text-white">
-        <div className="bg-black container mx-auto px-4 py-24">
+        <div className="bg-green600 container mx-auto px-4 py-24">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
               ยินดีต้อนรับสู่ <span className="text-yellow-300">BookStore</span>
